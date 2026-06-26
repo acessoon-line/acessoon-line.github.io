@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Atendimento ao Cliente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --azul-principal: #1a56db;
+            --azul-escuro: #1e3a8a;
+            --azul-claro: #3b82f6;
+            --azul-hover: #1d4ed8;
+            --azul-fundo: #eff6ff;
+            --branco: #ffffff;
+            --cinza-claro: #f8fafc;
+            --cinza-texto: #64748b;
+            --texto-escuro: #1e293b;
+            --whatsapp: #25d366;
+            --whatsapp-hover: #128c7e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--branco);
+            color: var(--texto-escuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-principal) 100%);
+            color: var(--branco);
+            padding: 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(26, 86, 219, 0.3);
+        }
+
+        .header-top {
+            background: rgba(0,0,0,0.15);
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-top a {
+            color: var(--branco);
+            text-decoration: none;
+            margin-left: 20px;
+            transition: opacity 0.3s;
+        }
+
+        .header-top a:hover {
+            opacity: 0.8;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--branco);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--branco);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-whatsapp-nav {
+            background: var(--whatsapp);
+            color: var(--branco) !important;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-whatsapp-nav:hover {
+            background: var(--whatsapp-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-whatsapp-nav::after {
+            display: none !important;
+        }
+
+        .menu-mobile {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            margin-top: 110px;
+            background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-principal) 50%, var(--azul-claro) 100%);
+            color: var(--branco);
+            padding: 100px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #93c5fd;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 35px;
+            max-width: 550px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--branco);
+            color: var(--azul-principal);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            border: 2px solid var(--branco);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--branco);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .btn-outline:hover {
+            background: var(--branco);
+            color: var(--azul-principal);
+            transform: translateY(-3px);
+        }
+
+        /* ===== SERVIÇOS ===== */
+        .servicos {
+            padding: 80px 0;
+            background: var(--cinza-claro);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--azul-escuro);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--cinza-texto);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--branco);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--azul-principal), var(--azul-claro));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(26, 86, 219, 0.15);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--azul-fundo), #dbeafe);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: var(--azul-principal);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            color: var(--azul-escuro);
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--cinza-texto);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .btn-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--azul-principal);
+            color: var(--branco);
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-card:hover {
+            background: var(--azul-hover);
+            transform: scale(1.05);
+        }
+
+        .btn-card-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--whatsapp);
+            color: var(--branco);
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-card-whatsapp:hover {
+            background: var(--whatsapp-hover);
+            transform: scale(1.05);
+        }
+
+        /* ===== COMO FUNCIONA ===== */
+        .como-funciona {
+            padding: 80px 0;
+            background: var(--branco);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--azul-principal), var(--azul-claro));
+            color: var(--branco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 20px rgba(26, 86, 219, 0.3);
+        }
+
+        .step h3 {
+            color: var(--azul-escuro);
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: var(--cinza-texto);
+        }
+
+        /* ===== FAQ ===== */
+        .faq {
+            padding: 80px 0;
+            background: var(--cinza-claro);
+        }
+
+        .faq-item {
+            background: var(--branco);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--azul-escuro);
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: var(--azul-fundo);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s;
+            color: var(--azul-principal);
+        }
+
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s;
+            color: var(--cinza-texto);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 30px 25px;
+            max-height: 300px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* ===== CONTATO ===== */
+        .contato {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--azul-escuro), var(--azul-principal));
+            color: var(--branco);
+            text-align: center;
+        }
+
+        .contato h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contato p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 35px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contato-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-whatsapp-large {
+            background: var(--whatsapp);
+            color: var(--branco);
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-whatsapp-large:hover {
+            background: var(--whatsapp-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0f172a;
+            color: var(--branco);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-brand p {
+            color: #94a3b8;
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            color: var(--branco);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--azul-claro);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 30px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* ===== WHATSAPP FLOAT ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--whatsapp);
+            color: var(--branco);
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+            transition: all 0.3s;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(10deg);
+            background: var(--whatsapp-hover);
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 5px 25px rgba(37, 211, 102, 0.5); }
+            50% { box-shadow: 0 5px 40px rgba(37, 211, 102, 0.8); }
+        }
+
+        .whatsapp-tooltip {
+            position: fixed;
+            bottom: 40px;
+            right: 110px;
+            background: var(--branco);
+            color: var(--texto-escuro);
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            z-index: 999;
+            animation: fadeInRight 0.5s;
+        }
+
+        .whatsapp-tooltip::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 8px solid transparent;
+            border-left-color: var(--branco);
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ===== UTILITIES ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-mobile {
+                display: block;
+            }
+
+            .hero {
+                margin-top: 90px;
+                padding: 60px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .whatsapp-tooltip {
+                display: none;
+            }
+
+            .header-top .container {
+                justify-content: center;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <span><i class="fas fa-headset"></i> Atendimento 24h por WhatsApp</span>
+                <div>
+                    <a href="https://wa.me/5500000000000" target="_blank"><i class="fab fa-whatsapp"></i> Fale Conosco</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    Central de Atendimento
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#como-funciona">Como Funciona</a></li>
+                    <li><a href="#faq">Dúvidas</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="https://wa.me/5500000000000" target="_blank" class="btn-whatsapp-nav">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a></li>
+                </ul>
+                <div class="menu-mobile"><i class="fas fa-bars"></i></div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Sua <span>segunda via</span>, quitação e renegociação em um só lugar</h1>
+                <p>Resolvemos tudo pelo WhatsApp. Sem filas, sem login, sem complicação. Atendimento rápido e humanizado 24 horas por dia.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/5500000000000" target="_blank" class="btn-primary">
+                        <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+                    </a>
+                    <a href="#servicos" class="btn-outline">
+                        <i class="fas fa-arrow-down"></i> Ver Serviços
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="servicos" id="servicos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nossos Serviços</h2>
+                <p>Escolha o serviço que você precisa e resolva tudo pelo WhatsApp em poucos minutos, sem precisar fazer login.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h3>2ª Via de Boleto</h3>
+                    <p>Emita a segunda via do seu boleto de forma rápida e prática. Enviamos o PDF direto no seu WhatsApp em segundos.</p>
+                    <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20solicitar%20a%202ª%20via%20do%20meu%20boleto." target="_blank" class="btn-card">
+                        <i class="fas fa-file-invoice"></i> Solicitar 2ª Via
+                    </a>
+                    <br>
+                    <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20solicitar%20a%202ª%20via%20do%20meu%20boleto." target="_blank" class="btn-card-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Quitação de Débito</h3>
+                    <p>Quer quitar seu débito com desconto? Negociamos as melhores condições para você pagar à vista e limpar seu nome.</p>
+                    <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20quitar%20meu%20débito.%20Pode%20me%20ajudar?" target="_blank" class="btn-card">
+                        <i class="fas fa-check-circle"></i> Quitar Agora
+                    </a>
+                    <br>
+                    <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20quitar%20meu%20débito.%20Pode%20me%20ajudar?" target="_blank" class="btn-card-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Renegociação</h3>
+                    <p>Proposta de renegociação com parcelas que cabem no seu bolso. Entrada facilitada e condições especiais para você.</p>
+                    <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20renegociar%20meu%20débito.%20Quais%20são%20as%20opções?" target="_blank" class="btn-card">
+                        <i class="fas fa-handshake"></i> Renegociar
+                    </a>
+                    <br>
+                    <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20renegociar%20meu%20débito.%20Quais%20são%20as%20opções?" target="_blank" class="btn-card-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="como-funciona" id="como-funciona">
+        <div class="container">
+            <div class="section-header">
+                <h2>Como Funciona</h2>
+                <p>Em apenas 3 passos você resolve sua situação sem sair de casa e sem precisar de login.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Clique no WhatsApp</h3>
+                    <p>Escolha o serviço desejado e clique em qualquer botão de WhatsApp do site. Você será direcionado automaticamente.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Envie seus Dados</h3>
+                    <p>Nosso atendente vai solicitar CPF, contrato ou boleto. Tudo de forma segura e criptografada.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Receba a Solução</h3>
+                    <p>Em minutos você recebe o boleto, a proposta de quitação ou o plano de renegociação no seu WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Dúvidas Frequentes</h2>
+                <p>Tire suas dúvidas sobre nossos serviços de atendimento.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Preciso fazer login para emitir a 2ª via?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Não! Nosso atendimento é 100% via WhatsApp, sem necessidade de login ou senha. Basta clicar no botão de WhatsApp, enviar seus dados e nossa equipe resolve para você em minutos.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Quanto tempo leva para receber o boleto?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O boleto é enviado em até 5 minutos após o envio dos seus dados. Em casos de alta demanda, o prazo máximo é de 15 minutos.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Consigo quitar com desconto?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Trabalhamos com descontos de até 90% para quitação à vista. O valor exato depende do tempo de atraso e do valor original do débito. Fale conosco pelo WhatsApp para uma simulação personalizada.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Quais as formas de pagamento para renegociação?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Aceitamos boleto bancário, PIX, cartão de crédito (em até 12x) e débito em conta. A entrada pode ser parcelada em até 3 vezes no cartão de crédito.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>O atendimento é realmente 24 horas?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Nosso atendimento via WhatsApp funciona 24 horas por dia, 7 dias por semana, inclusive feriados. Nossos atendentes estão sempre prontos para ajudar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="contato" id="contato">
+        <div class="container">
+            <h2>Fale Conosco Agora</h2>
+            <p>Não perca tempo. Nossos atendentes estão online e prontos para resolver sua situação em minutos. Atendimento 100% humanizado.</p>
+            <div class="contato-buttons">
+                <a href="https://wa.me/5500000000000" target="_blank" class="btn-whatsapp-large">
+                    <i class="fab fa-whatsapp"></i> Iniciar Atendimento
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3><i class="fas fa-shield-alt"></i> Central de Atendimento</h3>
+                    <p>Soluções rápidas e seguras para emissão de segunda via, quitação e renegociação de débitos. Atendimento humanizado 24h via WhatsApp.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#servicos">2ª Via de Boleto</a></li>
+                        <li><a href="#servicos">Quitação de Débito</a></li>
+                        <li><a href="#servicos">Renegociação</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="#como-funciona">Como Funciona</a></li>
+                        <li><a href="#faq">Dúvidas Frequentes</a></li>
+                        <li><a href="#contato">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="https://wa.me/5500000000000" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Central de Atendimento ao Cliente. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/5500000000000" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <div class="whatsapp-tooltip">Fale conosco!</div>
+
+    <script>
+        // FAQ Accordion
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const allItems = document.querySelectorAll('.faq-item');
+            
+            allItems.forEach(faq => {
+                if (faq !== item) faq.classList.remove('active');
+            });
+            
+            item.classList.toggle('active');
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Hide tooltip after 5 seconds
+        setTimeout(() => {
+            const tooltip = document.querySelector('.whatsapp-tooltip');
+            if (tooltip) tooltip.style.display = 'none';
+        }, 5000);
+    </script>
+
+</body>
+</html>
