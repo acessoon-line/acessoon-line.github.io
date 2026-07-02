@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Negociação de Dívidas - Até 90% de Desconto</title>
-    <base target="_blank">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -20,7 +19,9 @@
             --texto-escuro: #1e293b;
             --whatsapp: #25d366;
             --whatsapp-hover: #128c7e;
-            --rosa-principal: #ec4899;\n            --rosa-claro: #fbcfe8;\n            --rosa-fundo: #fdf2f8;
+            --rosa-principal: #ec4899;
+            --rosa-claro: #fbcfe8;
+            --rosa-fundo: #fdf2f8;
         }
 
         * {
@@ -647,7 +648,7 @@
             padding: 0 20px;
         }
 
-        
+
         .desconto-badge {
             background: linear-gradient(135deg, var(--rosa-principal), #f472b6);
             color: var(--branco);
@@ -862,7 +863,7 @@
                         <p>A proposta de negociação com descontos de até 90% é enviada em até 5 minutos após o envio dos seus dados. Em casos de alta demanda, o prazo máximo é de 15 minutos.</p>
                     </div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span>Quais as formas de pagamento para quitação com desconto?</span>
@@ -898,7 +899,7 @@
         </div>
     </section>
 
-    
+
     <!-- POLÍTICA DE PRIVACIDADE E TERMOS DE USO -->
     <section style="padding: 60px 0; background: var(--cinza-claro);" id="politica-privacidade">
         <div class="container">
@@ -1013,11 +1014,11 @@
         function toggleFaq(element) {
             const item = element.parentElement;
             const allItems = document.querySelectorAll('.faq-item');
-            
+
             allItems.forEach(faq => {
                 if (faq !== item) faq.classList.remove('active');
             });
-            
+
             item.classList.toggle('active');
         }
 
