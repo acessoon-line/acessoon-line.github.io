@@ -1,331 +1,207 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Assessoria especializada em intermediação e renegociação de dividas - Auxiliamos você a organizar suas finanças.</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Segoe UI,system-ui,sans-serif;color:#1e293b;line-height:1.6}
-.container{max-width:1100px;margin:0 auto;padding:0 20px}
-
-/* Header */
-header{background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;padding:12px 0;position:fixed;width:100%;top:0;z-index:1000}
-header .container{display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:1.2rem;font-weight:800}
-.logo i{margin-right:8px}
-.nav-links{display:flex;gap:22px;list-style:none;align-items:center}
-.nav-links a{color:#fff;text-decoration:none;font-weight:500;font-size:.9rem}
-.btn-nav{background:#25d366;color:#fff!important;padding:8px 16px;border-radius:50px;font-weight:600;font-size:.85rem}
-.menu-toggle{display:none;font-size:1.3rem;cursor:pointer}
-
-/* Hero */
-.hero{margin-top:50px;background:linear-gradient(135deg,#7c3aed,#a855f7,#c084fc);color:#fff;padding:70px 0 90px;text-align:center}
-.hero h1{font-size:2.4rem;font-weight:800;line-height:1.2;margin-bottom:15px}
-.hero h1 span{color:#ec4899}
-.hero p{font-size:1.05rem;opacity:.95;max-width:550px;margin:0 auto 25px}
-.badge{background:linear-gradient(135deg,#ec4899,#f472b6);color:#fff;padding:7px 16px;border-radius:50px;font-weight:700;font-size:.8rem;display:inline-block;margin-bottom:18px}
-.btn-hero{background:#fff;color:#a855f7;padding:13px 28px;border-radius:50px;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:8px;border:2px solid #fff;transition:.3s}
-.btn-hero:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,.2)}
-.btn-outline{background:transparent;color:#fff;padding:13px 28px;border-radius:50px;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:8px;border:2px solid rgba(255,255,255,.5);margin-left:10px;transition:.3s}
-.btn-outline:hover{background:#fff;color:#7c3aed}
-
-/* Sections */
-section{padding:60px 0}
-.section-title{text-align:center;margin-bottom:45px}
-.section-title h2{font-size:1.8rem;color:#7c3aed;margin-bottom:8px}
-.section-title p{color:#64748b;max-width:500px;margin:0 auto;font-size:.95rem}
-.bg-light{background:#f8fafc}
-
-/* Cards */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
-.card{background:#fff;border-radius:16px;padding:30px 22px;text-align:center;border:1px solid #e2e8f0;transition:.3s}
-.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(168,85,247,.1)}
-.card-icon{width:60px;height:60px;background:linear-gradient(135deg,#f5f3ff,#ede9fe);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:1.4rem;color:#a855f7}
-.card h3{font-size:1.15rem;color:#7c3aed;margin-bottom:8px}
-.card p{color:#64748b;font-size:.9rem;margin-bottom:18px}
-.badge-card{background:linear-gradient(135deg,#ec4899,#f472b6);color:#fff;padding:4px 12px;border-radius:50px;font-weight:700;font-size:.72rem;display:inline-block;margin-bottom:10px}
-.btn-card{background:#a855f7;color:#fff;padding:9px 22px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.85rem;display:inline-flex;align-items:center;gap:6px;transition:.3s}
-.btn-card:hover{background:#9333ea}
-.btn-wa{background:#25d366;color:#fff;padding:9px 22px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.85rem;display:inline-flex;align-items:center;gap:6px;margin-top:8px;transition:.3s}
-.btn-wa:hover{background:#128c7e}
-
-/* Steps */ 
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px}
-.step{text-align:center}
-.step-num{width:50px;height:50px;background:linear-gradient(135deg,#a855f7,#ec4899);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;margin:0 auto 15px}
-.step h3{color:#7c3aed;margin-bottom:6px;font-size:1rem}
-.step p{color:#64748b;font-size:.9rem}
-
-/* FAQ */
-.faq-item{background:#fff;border-radius:12px;margin-bottom:10px;border:1px solid #e2e8f0;overflow:hidden}
-.faq-q{padding:18px 22px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600;color:#7c3aed;font-size:.95rem}
-.faq-q:hover{background:#fdf2f8}
-.faq-q i{transition:transform .3s;color:#a855f7}
-.faq-a{padding:0 22px;max-height:0;overflow:hidden;transition:all .4s;color:#64748b;font-size:.9rem}
-.faq-item.active .faq-a{padding:0 22px 18px;max-height:300px}
-.faq-item.active .faq-q i{transform:rotate(180deg)}
-
-/* CTA */
-.cta{background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;text-align:center;padding:60px 0}
-.cta h2{font-size:1.8rem;margin-bottom:12px}
-.cta p{opacity:.9;max-width:500px;margin:0 auto 25px;font-size:.95rem}
-.btn-cta{background:#25d366;color:#fff;padding:14px 35px;border-radius:50px;text-decoration:none;font-weight:700;font-size:1rem;display:inline-flex;align-items:center;gap:10px;transition:.3s;box-shadow:0 8px 25px rgba(37,211,102,.4)}
-.btn-cta:hover{background:#128c7e;transform:translateY(-3px)}
-
-/* Legal sections */
-.legal-box{background:#fff;border-radius:16px;padding:30px;border:1px solid #e2e8f0;margin-bottom:30px}
-.legal-box h3{color:#7c3aed;margin:18px 0 8px;font-size:1.05rem}
-.legal-box p{color:#64748b;line-height:1.7;font-size:.9rem;margin-bottom:10px}
-
-/* Footer */
-footer{background:#0f172a;color:#fff;padding:45px 0 20px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:25px;margin-bottom:25px}
-.footer-brand p{color:#94a3b8;font-size:.85rem;line-height:1.7}
-.footer-links h4{margin-bottom:12px;font-size:.95rem}
-.footer-links ul{list-style:none}
-.footer-links li{margin-bottom:8px}
-.footer-links a{color:#94a3b8;text-decoration:none;font-size:.85rem;transition:.3s}
-.footer-links a:hover{color:#ec4899}
-.footer-bottom{border-top:1px solid #1e293b;padding-top:20px;text-align:center;color:#64748b;font-size:.8rem}
-
-/* WhatsApp Float */
-.wa-float{position:fixed;bottom:22px;right:22px;background:#25d366;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 5px 18px rgba(37,211,102,.5);z-index:999;text-decoration:none;transition:.3s;animation:pulse 2s infinite}
-.wa-float:hover{transform:scale(1.1);background:#128c7e}
-@keyframes pulse{0%,100%{box-shadow:0 5px 18px rgba(37,211,102,.5)}50%{box-shadow:0 5px 30px rgba(37,211,102,.8)}}
-
-/* Responsive */
-@media(max-width:768px){
-.nav-links{display:none}
-.menu-toggle{display:block}
-.hero{margin-top:46px;padding:45px 0 60px}
-.hero h1{font-size:1.7rem}
-.btn-outline{margin-left:0;margin-top:10px}
-.hero-buttons{display:flex;flex-direction:column;align-items:center}
-.footer-grid{grid-template-columns:1fr;text-align:center}
-.cards,.steps{grid-template-columns:1fr}
-.legal-box{padding:20px}
-}
-</style>
-<base target="_blank">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RM DA SILVA SERVIÇOS | Assessoria em Renegociação de Débitos</title>
+    <!-- Tailwind CSS para Design Profissional -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Ícones Modernos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 font-sans">
 
-<header>
-<div class="container">
-<div class="logo"><i class="fas fa-shield-alt"></i> RM DA SILVA SERVICOS</div>
-<ul class="nav-links">
-<li><a href="#servicos">Serviços</a></li>
-<li><a href="#como-funciona">Como Funciona</a></li>
-<li><a href="#faq">Dúvidas</a></li>
-<li><a href="#contato">Contato</a></li>
-<li><a href="https://wa.me/5513996835144?text=Ol%C3%A1,%20gostaria%20de%20atendimento" target="_blank" class="btn-nav"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-</ul>
-<div class="menu-toggle"><i class="fas fa-bars"></i></div>
-</div>
-</header>
+    <!-- BARRA DE NAVEGAÇÃO -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-2">
+                    <div class="bg-blue-900 text-white p-2.5 rounded-lg">
+                        <i class="fa-solid fa-scale-balanced text-xl"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-blue-900">RM DA SILVA <span class="text-slate-500 font-medium text-lg">Serviços</span></span>
+                </div>
+                <div class="hidden md:flex items-center gap-8 font-medium text-slate-600">
+                    <a href="#sobre" class="hover:text-blue-900 transition">Sobre Nós</a>
+                    <a href="#soluctions" class="hover:text-blue-900 transition">Como Ajudamos</a>
+                    <a href="#passos" class="hover:text-blue-900 transition">Funcionamento</a>
+                    <a href="#faq" class="hover:text-blue-900 transition">Dúvidas</a>
+                </div>
+                <div>
+                    <a href="https://wa.me/5511999999999" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-full font-medium flex items-center gap-2 shadow-sm transition">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Fale Conosco
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-<section class="hero">
-<div class="container">
-<div class="badge"><i class="fas fa-percentage"></i> RM DA SILVA Serviços</div>
-<h1>LHE AJUDAMOS A ENCONTRAR CAMINHOS SEGUROS, SUPORTE DO INICIO AO FIM. <span></span></h1>
-<p>Oferecemos assessoria e acompanhamento personalizado para ajudar você a regularizar sua situação junto aos credores.</p>
-<div class="hero-buttons">
-<a href="https://wa.me/5513996835144?text=Ol%C3%A1,%20gostaria%20de%20atendimento" target="_blank" class="btn-hero"><i class="fab fa-whatsapp"></i> FAZER CONSULTA GRATUITA</a>
-<a href="#servicos" class="btn-outline"><i class="fas fa-arrow-down"></i> Ver Serviços</a>
-</div>
-</div>
-</section>
+    <!-- SEÇÃO PRINCIPAL (HERO) -->
+    <header id="sobre" class="bg-gradient-to-br from-blue-950 to-slate-900 text-white py-20 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="bg-blue-800 text-blue-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Assessoria Corporativa Independente</span>
+                <h1 class="text-4xl lg:text-5xl font-extrabold tracking-tight mt-4 leading-tight">
+                    Encontre caminhos seguros para reorganizar suas finanças.
+                </h1>
+                <p class="mt-6 text-lg text-slate-300 leading-relaxed">
+                    Oferecemos assessoria estratégica e mediação personalizada para ajudar você a regularizar sua situação diretamente com seus credores, buscando as melhores oportunidades e descontos para quitação.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/5511999999999" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white text-center px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-emerald-900/30 transition flex items-center justify-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> Solicitar Análise Gratuita
+                    </a>
+                    <a href="#soluctions" class="border border-slate-700 hover:bg-slate-800 text-center px-8 py-4 rounded-xl font-medium text-lg transition">
+                        Conhecer Serviços
+                    </a>
+                </div>
+            </div>
+            <div class="hidden md:block relative">
+                <div class="bg-slate-800/50 border border-slate-700 p-8 rounded-2xl shadow-2xl backdrop-blur-sm">
+                    <div class="flex items-center gap-4 border-b border-slate-700 pb-4 mb-6">
+                        <i class="fa-solid fa-shield-halved text-emerald-400 text-3xl"></i>
+                        <div>
+                            <h4 class="font-bold text-lg">Atendimento Transparente</h4>
+                            <p class="text-xs text-slate-400">Processos administrativos em conformidade com as diretrizes do mercado</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Intermediação humanizada direto via WhatsApp</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Análise de propostas de parcelamento e descontos</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-400 mt-1"></i> Isenção de taxas ocultas na consulta inicial</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<section class="bg-light" id="servicos">
-<div class="container">
-<div class="section-title">
-<h2>Nossas Soluções de Consultas e Assessoria</h2>
-<p>Consulte as condições disponíveis para seus registros e receba informações sobre as alternativas. Tudo pelo WhatsApp em poucos minutos.</p>
-</div>
-<div class="cards">
-<div class="card">
-<div class="card-icon"><i class="fas fa-file-invoice"></i></div>
-<div class="badge-card"><i class="fas fa-tag"></i> Análise gratuita</div>
-<h3>Orientação Personalizada</h3>
-<p>Receba informações e orientações diretamente pelo Whatsapp.</p>
-<a href="https://wa.me/5513996835144?text=Ol%C3%A1,%20gostaria%20de%20atendimento" target="_blank" class="btn-card"><i class="fas fa-percentage"></i> Inicie o Atendimento</a>
-<br><a href="https://wa.me/5513996835144?text=Ol%C3%A1,%20gostaria%20de%20atendimento" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-</div>
-<div class="card">
-<div class="card-icon"><i class="fas fa-check-circle"></i></div>
-<div class="badge-card"><i class="fas fa-fire"></i> Nota de esclarecimento</div>
-<h3>Atendimento Online!</h3>
-<p>As condições, valores, Descontos e formas de pagamentos podem variar conforme o registro e condições disponibilizadas.</p>
-<a href="https://wa.me/5513996835144?text=Ol%C3%A1,%20gostaria%20de%20atendimento" target="_blank" class="btn-card"><i class="fas fa-check-circle"></i> Análises e Condições</a>
-<br><a href="https://wa.me/5513996835144?text=Ol%C3%A1,%20gostaria%20de%20atendimento" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-</div>
-<div class="card">
-<div class="card-icon"><i class="fas fa-handshake"></i></div>
-<div class="badge-card"><i class="fas fa-hand-holding-usd"></i> Suporte</div>
-<h3>Nota de esclarecimento</h3>
-<p>A RM DA SILVA SERVIÇOS é uma empresa privada de assessoria administrativa. Nós auxiliamos nossos clientes na organização financeira e na intermediação de propostas para renegociação de débitos junto aos seus respectivos credores. Não somos uma instituição financeira, não concedemos empréstimos e não realizamos a exclusão de registros legítimos em órgãos de proteção ao crédito sem a devida quitação da dívida junto ao credor..</p>
-<a href="https://wa.me/5513996835144?text=Ol%C3%A1,%20gostaria%20de%20atendimento" target="_blank" class="btn-card"><i class="fas fa-handshake"></i> Atendimento Especializado</a>
-<br><a href="https://wa.me/5513996835144?text=Ol%C3%A1,%20gostaria%20de%20atendimento" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-</div>
-</div>
-</div>
-</section>
+    <!-- COMPROMISSO DE TRANSPARÊNCIA (DENTRO DA REGRA DO GOOGLE ADS) -->
+    <section id="soluctions" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-blue-900 tracking-tight">Nossas Soluções de Consulta e Intermediação</h2>
+                <p class="mt-4 text-slate-600 text-lg">Avaliamos suas pendências para estruturar propostas viáveis de liquidação.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl hover:shadow-md transition">
+                    <div class="text-blue-900 bg-blue-100 w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Orientação Personalizada</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Análise criteriosa dos registros informados para que você entenda as alternativas e cenários disponíveis para o seu caso.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl hover:shadow-md transition">
+                    <div class="text-blue-900 bg-blue-100 w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-handshake-simple"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Mediação de Acordos</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Intermediamos o contato administrative para alcançar condições diferenciadas, descontos em juros e opções flexíveis de parcelamento.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl hover:shadow-md transition">
+                    <div class="text-blue-900 bg-blue-100 w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Suporte na Regularização</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Acompanhamento completo durante todo o processo, desde a emissão dos boletos oficiais até a efetiva baixa do débito junto ao credor.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="como-funciona">
-<div class="container">
-<div class="section-title">
-<h2>Como Funciona</h2>
-<p>Em apenas 3 passos você realiza uma consulta completa.</p>
-</div>
-<div class="steps">
-<div class="step">
-<div class="step-num">1</div>
-<h3>Clique no WhatsApp</h3>
-<p>Escolha o serviço desejado e clique em qualquer botão de WhatsApp do site. Você será direcionado automaticamente.</p>
-</div>
-<div class="step">
-<div class="step-num">2</div>
-<h3>Envie seus Dados</h3>
-<p>Durante o atendimento podemos solicitar alguns dados. Não envie senhas, códigos e dados bancários.</p>
-</div>
-<div class="step">
-<div class="step-num">3</div>
-<h3>Receba as informações</h3>
-<p>Em alguns minutos você faz a sua análise pelo seu WhatsApp.</p>
-</div>
-</div>
-</div>
-</section>
+    <!-- ETAPAS DO PROCESSO -->
+    <section id="passos" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold tracking-tight">Atendimento Prático e Seguro</h2>
+                <p class="mt-4 text-slate-400">Entenda como funciona o nosso suporte em apenas 3 passos simples.</p>
+            </div>
 
-<section class="bg-light" id="faq">
-<div class="container">
-<div class="section-title">
-<h2>Dúvidas Frequentes</h2>
-<p>Tire suas dúvidas sobre nossos serviços de atendimento.</p>
-</div>
-<div class="faq-item active">
-<div class="faq-q" onclick="toggleFaq(this)"><span>Preciso fazer login para negociar minha dívida?</span><i class="fas fa-chevron-down"></i></div>
-<div class="faq-a"><p>Não! Nosso atendimento é 100% via WhatsApp, sem necessidade de login ou senha. Basta clicar no botão de WhatsApp, entrar em contato e será orientado.</p></div>
-</div>
-<div class="faq-item">
-<div class="faq-q" onclick="toggleFaq(this)"><span>A consulta tem custo?</span><i class="fas fa-chevron-down"></i></div>
-<div class="faq-a"><p>A consulta inicial é gratuita. Eventuais custos ou condições relacionados serão avisadas previamente.</p></div>
-</div>
-<div class="faq-item">
-<div class="faq-q" onclick="toggleFaq(this)"><span>As condições são garantidas?</span><i class="fas fa-chevron-down"></i></div>
-<div class="faq-a"><p>Não. As condições, valores e eventuais descontos dependem das informações e condições disponíveis.</p></div>
-</div>
-<div class="faq-item">
-<div class="faq-q" onclick="toggleFaq(this)"><span>Como entro em contato?</span><i class="fas fa-chevron-down"></i></div>
-<div class="faq-a"><p>Clicando no botão, você será direcionado a um de nossos atendentes.</p></div>
-</div>
-</div>
-</section>
+            <div class="grid md:grid-cols-3 gap-12 relative">
+                <div class="text-center">
+                    <div class="w-12 h-12 rounded-full bg-blue-800 text-white flex items-center justify-center font-bold text-lg mx-auto mb-6">1</div>
+                    <h3 class="text-xl font-bold mb-3">Conexão via WhatsApp</h3>
+                    <p class="text-slate-400 text-sm px-4">Clique nos botões de atendimento para ser direcionado de forma segura a um especialista.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 rounded-full bg-blue-800 text-white flex items-center justify-center font-bold text-lg mx-auto mb-6">2</div>
+                    <h3 class="text-xl font-bold mb-3">Estudo de Caso</h3>
+                    <p class="text-slate-400 text-sm px-4">Apresente as informações básicas necessárias para mapearmos suas pendências. **Nunca solicitamos senhas de contas ou dados bancários**.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 rounded-full bg-blue-800 text-white flex items-center justify-center font-bold text-lg mx-auto mb-6">3</div>
+                    <h3 class="text-xl font-bold mb-3">Planejamento e Propostas</h3>
+                    <p class="text-slate-400 text-sm px-4">Receba um relatório detalhado com os caminhos legais de negociação e os descontos identificados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="cta" id="contato">
-<div class="container">
-<h2>Fale Conosco Agora</h2>
-<p>Não perca tempo. Nossos atendentes estão online e prontos para lhe atender. Atendimento 100% humanizado.</p>
-<a href="https://wa.me/5513996835144?text=Ol%C3%A1,%20gostaria%20de%20atendimento" target="_blank" class="btn-cta"><i class="fab fa-whatsapp"></i> Iniciar Atendimento</a>
-</div>
-</section>
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-blue-900 tracking-tight">Dúvidas Frequentes</h2>
+                <p class="mt-4 text-slate-600">Esclareça os principais pontos sobre os nossos serviços de consultoria.</p>
+            </div>
 
-<section class="bg-light" id="politica-privacidade">
-<div class="container">
-<div class="section-title"><h2>Política de Privacidade</h2></div>
-<div class="legal-box">
-<p>A <strong>RM DA SILVA SERVIÇOS</strong> valoriza a privacidade dos seus usuários. Esta política descreve como coletamos, usamos e protegemos suas informações pessoais.</p>
-<h3>1. Coleta de Dados</h3>
-<p>Coletamos apenas as informações necessárias para prestar nossos serviços, como nome, CPF, dados de contato e informações relacionadas aos seus registros. Esses dados são fornecidos voluntariamente por você durante o atendimento via WhatsApp.</p>
-<h3>2. Uso das Informações</h3>
-<p>As informações coletadas são utilizadas exclusivamente para processar sua consulta. Não compartilhamos seus dados com terceiros sem o seu consentimento, exceto quando exigido por lei.</p>
-<h3>3. Segurança</h3>
-<p>Adotamos medidas de segurança técnicas e administrativas para proteger seus dados contra acesso não autorizado, alteração, divulgação ou destruição.</p>
-<h3>4. Seus Direitos</h3>
-<p>Você tem o direito de acessar, corrigir e solicitar a exclusão dos seus dados pessoais a qualquer momento. Para exercer esses direitos, entre em contato conosco pelo WhatsApp.</p>
-</div>
-</div>
-</section>
+            <div class="space-y-6">
+                <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl">
+                    <h4 class="font-bold text-slate-900 text-lg mb-2">Preciso fazer algum tipo de login ou fornecer senhas?</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Não. Nosso atendimento é 100% focado em suporte humano via WhatsApp. Você não precisa efetuar cadastros com dados sensíveis, senhas de cartões ou códigos de acessos para obter a análise.</p>
+                </div>
+                <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl">
+                    <h4 class="font-bold text-slate-900 text-lg mb-2">A consulta inicial possui algum custo?</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">A análise inicial das suas restrições e o levantamento de possibilidades são gratuitos. Caso opte pela contratação dos nossos serviços de intermediação administrativa, quaisquer custos e condições contratuais serão informados previamente de forma clara.</p>
+                </div>
+                <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl">
+                    <h4 class="font-bold text-slate-900 text-lg mb-2">Os valores e descontos são garantidos?</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">As margens de desconto, reduções de juros e opções de parcelamento variam de acordo com as políticas comerciais vigentes de cada credor ou instituição financeira detentora da dívida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="termos-uso">
-<div class="container">
-<div class="section-title"><h2>Termos de Uso</h2></div>
-<div class="legal-box">
-<p>Ao utilizar os serviços da <strong>RM DA SILVA SERVIÇOS</strong>, você concorda com os seguintes termos e condições.</p>
-<h3>1. Serviços Oferecidos</h3>
-<p>Oferecemos atendimento via WhatsApp para quitação e renegociação de dívidas. Nossos serviços são prestados de forma humanizada e segura.</p>
-<h3>2. Responsabilidades do Usuário</h3>
-<p>O usuário se compromete a fornecer informações verdadeiras e atualizadas. O uso indevido dos serviços, incluindo a tentativa de fraude, resultará no imediato cancelamento do atendimento.</p>
-<h3>3. Limitação de Responsabilidade</h3>
-<p>A RM DA SILVA SERVIÇOS não se responsabiliza por eventos de força maior, falhas de conectividade ou problemas técnicos de terceiros que possam afetar a prestação dos serviços.</p>
-<h3>4. Alterações nos Termos</h3>
-<p>Reservamo-nos o direito de alterar estes termos a qualquer momento. As alterações entrarão em vigor assim que publicadas nesta página.</p>
-</div>
-</div>
-</section>
+    <section class="bg-slate-100 border-t border-slate-200 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-xs text-slate-500 leading-relaxed text-center md:text-left space-y-3">
+            <p>
+                <strong>NOTA DE ESCLARECIMENTO LEGAL:</strong> A <strong>RM DA SILVA SERVIÇOS</strong> é uma empresa privada que atua exclusivamente na prestação de serviços de apoio administrativo, consultoria financeira e intermediação de propostas de acordos extrajudiciais. Não somos uma instituição financeira, não realizamos a concessão de empréstimos, financiamentos, adiantamentos ou quaisquer operações de crédito privativas de entidades bancárias.
+            </p>
+            <p>
+                Não possuímos vínculo, convênio ou chancela oficial com os birôs de proteção ao crédito (como Serasa, SPC Brasil ou Boa Vista) ou órgãos governamentais. Esclarecemos que a exclusão, baixa ou supressão de quaisquer anotações restritivas legítimas nos cadastros de inadimplentes ocorre unicamente após a efetiva liquidação do débito ou formalização de acordo diretamente com o credor de origem, conforme os prazos legais regulamentados pelo Código de Defesa do Consumidor (CDC).
+            </p>
+        </div>
+    </section>
 
-<footer>
-<div class="container">
-<div class="footer-grid">
-<div class="footer-brand">
-<p>Soluções práticas e seguras. Atendimento especializado.</p>
-</div>
-<div class="footer-links">
-<h4>Serviços</h4>
-<ul>
-<li><a href="#servicos">Analise Completa</a></li>
-<li><a href="#servicos">Consulta Gratuita</a></li>
-<li><a href="#servicos">Comprometimento</a></li>
-</ul>
-</div>
-<div class="footer-links">
-<h4>Links Úteis</h4>
-<ul>
-<li><a href="#como-funciona">Como Funciona</a></li>
-<li><a href="#faq">Dúvidas Frequentes</a></li>
-<li><a href="#contato">Fale Conosco</a></li>
-</ul>
-</div>
-<div class="footer-links">
-<h4>Contato</h4>
-<ul>
-<li><a href="https://wa.me/5513996835144?text=Ol%C3%A1,%20gostaria%20de%20atendimento" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-</ul>
-</div>
-<div class="footer-links">
-<h4>Legal</h4>
-<ul>
-<li><a href="#politica-privacidade">Política de Privacidade</a></li>
-<li><a href="#termos-uso">Termos de Uso</a></li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2026 RM DA SILVA SERVICOS. Todos os direitos reservados.</p>
-<p style="margin-top:8px">CNPJ: 20.005.232/0001-40 •  Rua Itaguaí, nº 56, Slj Frente, Bairro Jardim Stella, Santo André – SP
-• CEP: 09185-620</p>
-</div>
-</div>
-</footer>
-
-<a href="https://wa.me/5513996835144?text=Ol%C3%A1,%20gostaria%20de%20atendimento" target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i></a>
-
-<script>
-function toggleFaq(el){
-const item=el.parentElement;
-document.querySelectorAll('.faq-item').forEach(f=>{if(f!==item)f.classList.remove('active')});
-item.classList.toggle('active');
-}
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-a.addEventListener('click',function(e){
-e.preventDefault();
-const t=document.querySelector(this.getAttribute('href'));
-if(t)t.scrollIntoView({behavior:'smooth'});
-});
-});
-</script>
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 items-center border-b border-slate-800 pb-8 mb-8">
+            <div>
+                <p class="font-bold text-white mb-2">RM DA SILVA SERVIÇOS</p>
+                <p>Soluções corporativas e mediação administrativa em renegociação financeira.</p>
+            </div>
+            <div class="flex md:justify-end gap-6 text-xs">
+                <a href="#politica" class="hover:text-white transition">Política de Privacidade</a>
+                <a href="#termos" class="hover:text-white transition">Termos de Uso</a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-xs space-y-2 text-center md:text-left">
+            <p>© 2026 RM DA SILVA SERVIÇOS. Todos os direitos reservados.</p>
+            <p class="text-slate-500">
+                <strong>CNPJ:</strong> 20.005.232/0001-40 | <strong>Endereço Comercial:</strong> Rua Itaguaí, nº 56, Slj Frente, Bairro Jardim Stella, Santo André – SP, CEP: 09185-620
+            </p>
+        </div>
+    </footer>
 
 </body>
 </html>
